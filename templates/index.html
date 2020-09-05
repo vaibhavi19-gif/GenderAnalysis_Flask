@@ -1,0 +1,46 @@
+{% extends "bootstrap/base.html" %} {% block content %}
+
+<div class="container">
+  <div class="jumbotron" style="background-color: #ab7dbd">
+    <center>
+      <b> <h2 style="color: white; font-size: 50px">Gender Classifier</h2></b>
+    </center>
+    <center>
+      <b
+        ><h4 style="color: white; font-size: 30px">
+          Machine Learning + Flask
+        </h4></b
+      >
+    </center>
+  </div>
+  <center><h1>Write down the name to classify Gender</h1></center>
+</div>
+
+<div class="container">
+  <center>
+  <div class="panel-group ">
+    <div class="panel panel-primary pl-4">
+      <div class="panel-heading" style="background-color:  #ab7dbd">
+        <h4>Gender Classifier</h4>
+      </div>
+      <div class="panel-body">
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="POST">
+          <input type="text" name="namequery" />
+          <button type="submit" class="btn btn-success">Predict</button>
+        </form>
+
+        <!-- Main Input For Receiving Query to our ML -->
+      </div>
+    </div>
+  </center>
+  </div>
+
+  {% endblock %} {% block styles %} {{super()}}
+  <!-- Allows Javascripts and other styles to be inclusive in bootstrap -->
+  <link
+    rel="stylesheet"
+    href="{{url_for('.static', filename='css/styles.css')}}"
+  />
+  {% endblock %}
+</div>
